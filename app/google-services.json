@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "488963334280",
+    "project_id": "jobpredictor-52306",
+    "storage_bucket": "jobpredictor-52306.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488963334280:android:f8dd89bbfd420af29a3f3d",
+        "android_client_info": {
+          "package_name": "com.example.ai_job_predictor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488963334280-fculi8qhqgbmpk9cs0vv90a0jv3e1nd8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuuhfL0aJHzeAeM3225pS-5gXX94eh72E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488963334280-fculi8qhqgbmpk9cs0vv90a0jv3e1nd8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
