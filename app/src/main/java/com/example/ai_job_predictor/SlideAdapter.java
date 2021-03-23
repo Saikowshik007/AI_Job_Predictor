@@ -16,9 +16,8 @@ import androidx.viewpager.widget.ViewPager;
 
 public class SlideAdapter extends PagerAdapter {
     Context context;
-    LayoutInflater inflater;
-    public int[] imageArray={R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.a};
-    public String[] titleArray={"Image1","Image2","Image3","Image4","Image5"};
+    LayoutInflater inflater;public int[] imageArray={R.drawable.a,R.drawable.b,R.drawable.d};
+    public String[] titleArray={"Image1","Image2","Image3"};
     public String[] descriptionArray={"A1","A2"};
     public int[] backgroundColorArray={R.color.jet,R.color.oil,R.color.accent,R.color.teal_700};
     public SlideAdapter(Context context){

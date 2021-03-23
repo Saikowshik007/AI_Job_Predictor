@@ -10,9 +10,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
+import android.database.Cursor;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,16 +35,21 @@ import com.google.firebase.ml.custom.FirebaseModelInterpreter;
 import com.google.firebase.ml.custom.FirebaseModelInterpreterOptions;
 
 import org.tensorflow.lite.Interpreter;
+import org.w3c.dom.Document;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
 import java.sql.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -50,6 +58,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int PIC_CROP =1 ;
     EditText et;
     Button b,c;
     ProgressBar pb;
@@ -91,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 final String message = et.getText().toString().trim().toLowerCase();
                 // Toast.makeText(getBaseContext(),"message:"+message,Toast.LENGTH_LONG).show();
                 if (message.length()<150)
-                {Toast.makeText(getBaseContext(), "Please enter text length of >150",Toast.LENGTH_LONG).show();}
+                {Toast.makeText(getBaseContext(), "Please enter text length of >150",Toast.LENGTH_LONG).show(); pb.setVisibility(View.INVISIBLE);}
                 else{
                     classifier.setCallback(new Classifier.DataCallback() {
                         @Override
@@ -220,6 +229,48 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
 
     }
-
+//    public void pick() {
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.setType("*/*");
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+//        try {
+//            startActivityForResult(
+//                    Intent.createChooser(intent, "Select a File to Upload"),
+//                    101);
+//        } catch (android.content.ActivityNotFoundException ex) {
+//            Toast.makeText(this, "Please install a File Manager.",
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        String content;
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode==101){
+//        Uri selectedfile_uri = data.getData();
+//            try {
+//                InputStream in = getContentResolver().openInputStream(selectedfile_uri);
+//                BufferedReader r = new BufferedReader(new InputStreamReader(in, "utf-8"));
+//                StringBuilder total = new StringBuilder();
+//                for (String line; (line = r.readLine()) != null; ) {
+//                    Log.d("out",line);
+//                    total.append(line).append('\n');
+//                }
+//
+//                content = total.toString();
+//                et.setText(content);
+//
+//
+//
+//            }catch (Exception e) {
+//
+//            }
+//
+//        }
+//
+//    }
+//
 
 }

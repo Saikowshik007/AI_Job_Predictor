@@ -2,6 +2,7 @@ package com.example.ai_job_predictor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,12 +31,15 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 public class ListAdapter extends RecyclerView.Adapter{
     private Context mcontext;
     private List<Jobs> JobList;
     TextView title,percentage;
     ImageButton button;
+    String[] colors={"#FFCB7D","#DBA9A9","#C1E950","#CFE2CF","#B3EBCC","#9BF8FF","#82BEF3","#AFAFCF","#C1A3FF","#FFE2FF","#EB8484","#20d2bb"};
+    Random generator = new Random();
 public ListAdapter(Context context,List<Jobs> jobList){
     JobList=jobList;
     mcontext=context;
@@ -64,6 +68,8 @@ public ListAdapter(Context context,List<Jobs> jobList){
         ((jobHolder)holder).bind(details);
         button=holder.itemView.findViewById(R.id.imageButton);
         if(position!=0) { button.setVisibility(View.INVISIBLE); }
+        int randomIndex = generator.nextInt(colors.length);
+        holder.itemView.findViewById(R.id.cardView).setBackgroundColor(Color.parseColor(colors[randomIndex]));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -16,6 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:text=" About Us"
+        android:textAlignment="center"
+        android:textColor="#B72ED6"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ImageButton
         android:id="@+id/back2"
         android:layout_width="wrap_content"
@@ -28,13 +44,80 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/abc_vector_test" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About Activity"
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/accent"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/insta" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:elevation="5dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/linkedin" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/facebook" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/download" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:alpha="1.0"
+        android:background="@android:color/transparent"
+        android:backgroundTintMode="multiply"
+        android:clipToPadding="true"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="1.0"
+                android:padding="5dp"
+                android:text="Recently, the sudden development of Information Technology causes a plethora of job positions and particular IT job requirements. Many jobs emerged, which made it difficult for students and job seekers to identify a job that suits their knowledge and skills. In addition to this, recruitment companies have to manually filter the vast bundles of applicants' profiles to select the best-suited person for the job, causing a significant time waste if the applicants are enormous in numbers. So, we wanted to address and solve these problems with the knowledge we possess right now. Our project is a classification system using various machine learning and deep learning, and Natural language processing techniques, which will work on descriptions of jobs that include skills, knowledge, and interests. We've fetched 25 types of jobs with their descriptions, consisting of 700 samples a type into a single dataset from a well-known website 'indeed.com' by web-scraping techniques. Later, we've analyzed the data and experimented with this data using various Machine learning techniques, which will be discussed further in this report. Finally, we've created a tflite model that will help the android application to predict the jobs. Input: We will provide a small paragraph which is a description of skill set, knowledge, and interests. Output: The application will provide a Job that best fits the provided description."
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

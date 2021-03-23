@@ -35,14 +35,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Register extends AppCompatActivity {
 CountryCodePicker ccp;
-EditText namef,emailf,phonef,passwordf,agef;
+EditText namef,emailf,phonef,passwordf,agef,addressf;
 TextView login;
 Button register;
 FirebaseAuth fa;
 FirebaseFirestore fs;
-    String userId, email, password, phone, name, otp;
-    private String mVerificationId;
-    String age;
+    String userId, email, password, phone, name, address,age;
     public boolean validate(String name, String email, String password, String phone, int age) {
         if (TextUtils.isEmpty(name)) {
             namef.setError("Enter a valid name");
@@ -82,6 +80,7 @@ FirebaseFirestore fs;
         phonef=findViewById(R.id.editText6);
         passwordf=findViewById(R.id.editText5);
         agef=findViewById(R.id.age);
+        addressf=findViewById(R.id.address);
         login=findViewById(R.id.link_login);
         register=findViewById(R.id.button2);
         fa=FirebaseAuth.getInstance();
@@ -102,6 +101,7 @@ FirebaseFirestore fs;
                 password = passwordf.getText().toString().trim();
                 phone = "+"+ccp.getSelectedCountryCode() + phonef.getText().toString().trim();
                 age = agef.getText().toString().trim();
+                address=addressf.getText().toString().trim();
 
                 if (validate(name, email, password, phone,Integer.valueOf(age))) {
                     createaccount();
@@ -123,6 +123,7 @@ FirebaseFirestore fs;
                     user.put("email",email);
                     user.put("age",age);
                     user.put("userId",userId);
+                    user.put("address",address);
                     Toast.makeText(Register.this, "Authentication passed.", Toast.LENGTH_SHORT).show();
                     DocumentReference cf = fs.collection("Users").document(fa.getCurrentUser().getUid());
                     cf.set(user);

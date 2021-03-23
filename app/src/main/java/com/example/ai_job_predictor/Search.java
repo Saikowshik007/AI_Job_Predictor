@@ -32,7 +32,7 @@ public class Search extends AppCompatActivity {
         swipeRefresh = findViewById(R.id.swiperefresh);
         browser.getSettings().setJavaScriptEnabled(true);
         browser.setWebViewClient(new WebViewController());
-        String url = "https://www.indeed.com/jobs?q=" + job.replace(" ", "%20");
+        String url = "https://www.indeed.co.in/jobs?q=" + job.replace(" ", "%20");
         browser.loadUrl(url);
         browser.canGoBack();
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
